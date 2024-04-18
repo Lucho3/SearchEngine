@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
+using Microsoft.EntityFrameworkCore;
 
 namespace SearchEngine.Database.Models
 {
@@ -19,7 +20,7 @@ namespace SearchEngine.Database.Models
         public string Name { get; set; }
 
         [Required]
-        public string YearBorn { get; set; }
+        public int YearBorn { get; set; }
 
         [Required]
         public string Sex { get; set; }
@@ -27,19 +28,23 @@ namespace SearchEngine.Database.Models
         [Required]
         public int Height { get; set; }
 
+        [Required]
+        public string EGN { get; set; }
+
         public Dictionary<string, object> GetProperties()
         {
             return new Dictionary<string, object>
             {
                 { "Name", Name },
-                { "YearBorn", YearBorn },
+                { "Year Born", YearBorn },
                 { "Sex", Sex },
-                { "Height", Height }
+                { "Height", Height },
+                { "EGN", EGN },
             };
         }
         public override string ToString()
         {
-            return $"{Name}, Born: {YearBorn}, Sex: {Sex}, Height: {Height} cm";
+            return $"{Name}, Born: {YearBorn}, Sex: {Sex}, Height: {Height} cm, EGN: {EGN}";
         }
 
     }

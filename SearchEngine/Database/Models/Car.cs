@@ -29,6 +29,9 @@ namespace SearchEngine.Database.Models
         public string FuelType { get; set; }
 
         [Required]
+        public string VIN { get; set; }
+
+        [Required]
         public int TyreSize { get; set; }
 
         public Dictionary<string, object> GetProperties()
@@ -38,13 +41,14 @@ namespace SearchEngine.Database.Models
                 { "Brand", Brand },
                 { "Model", Model },
                 { "Year", Year },
-                { "FuelType", FuelType },
-                { "TyreSize", TyreSize }
+                { "Fuel Type", FuelType },
+                { "Tyre Size", TyreSize },
+                { "VIN", VIN }
             };
         }
         public override string ToString()
         {
-            return $"{Brand} {Model} ({Year}) - Fuel: {FuelType}, Tyres: {TyreSize} inches";
+            return $"{Brand} {Model} ({Year}) - Fuel: {FuelType}, Tyres: {TyreSize} inches, VIN: {VIN}";
         }
     }
 }

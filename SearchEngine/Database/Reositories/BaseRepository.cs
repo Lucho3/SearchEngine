@@ -15,5 +15,14 @@ namespace SearchEngine.Database.Reositories
                 return dbContext.Set<T>().ToList();
             }
         }
+
+        public void Add(T item)
+        {
+            using (var dbContext = new DbContextRandom())
+            {
+                dbContext.Add(item);
+                dbContext.SaveChanges();
+            }
+        }
     }
 }

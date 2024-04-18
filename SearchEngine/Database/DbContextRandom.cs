@@ -29,6 +29,11 @@ namespace SearchEngine.Database
             modelBuilder.Entity<Car>().Property(e => e.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<Project>().Property(e => e.Id).ValueGeneratedOnAdd();
 
+
+            modelBuilder.Entity<Person>().HasIndex(u => u.EGN).IsUnique();
+            modelBuilder.Entity<Project>().HasIndex(u => u.Name).IsUnique();
+            modelBuilder.Entity<Car>().HasIndex(u => u.VIN).IsUnique();
+
             List<Car> dummyCars = new List<Car>();
 
             for (int i = 0; i < 5; i++)
@@ -40,7 +45,8 @@ namespace SearchEngine.Database
                     Model = $"Model{i + 1}",
                     Year = 2020 + i,
                     FuelType = i % 2 == 0 ? "Petrol" : "Diesel",
-                    TyreSize = 18
+                    TyreSize = 15+i,
+                    VIN = $"SHEV123455674{i*3}"
                 };
 
                 dummyCars.Add(car);
@@ -70,7 +76,8 @@ namespace SearchEngine.Database
                 {
                     Id = i + 1,
                     Name = $"Person {i + 1}",
-                    YearBorn = "1990",
+                    YearBorn = 1950+(i+1)*20,
+                    EGN = $"02413532{i}",
                     Sex = i % 2 == 0 ? "Male" : "Female",
                     Height = 170
                 };

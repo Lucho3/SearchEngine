@@ -1,5 +1,6 @@
 ﻿using SearchEngine.Database.Models;
 using SearchEngine.ViewModels;
+using SearchEngine.Views;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -16,7 +17,7 @@ namespace SearchEngine
             base.OnStartup(e);
             var types = new List<Type> { typeof(Car), typeof(Project), typeof(Person) };
             var searchViewModel = new SearchViewModel(types);
-            var mainWindow = new MainWindow { DataContext = searchViewModel };
+            var mainWindow = new MainWindow(searchViewModel);
             mainWindow.Show();
         }
     }

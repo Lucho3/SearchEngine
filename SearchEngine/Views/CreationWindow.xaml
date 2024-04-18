@@ -1,0 +1,32 @@
+﻿<Window x:Class="SearchEngine.Views.CreationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Create New Item" Height="400" Width="375">
+    <md:DrawerHost>
+        <DockPanel LastChildFill="True" Background="MediumPurple">
+            <md:Card Margin="10" Padding="10">
+                <StackPanel>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,10">
+                        <ItemsControl ItemsSource="{Binding Properties}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                                        <TextBlock Text="{Binding Key}" Width="100" Foreground="White"/>
+                                        <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="200" Foreground="White" Background="#333333"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                    <Button Content="Save" Command="{Binding SaveCommand}"
+                            HorizontalAlignment="Right" Margin="10,20,0,0"
+                            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                </StackPanel>
+            </md:Card>
+        </DockPanel>
+    </md:DrawerHost>
+</Window>
