@@ -24,15 +24,13 @@ namespace SearchEngine.ViewModels
         private void ExecuteOk()
         {
             // Handle OK logic here
-            DialogHost.CloseDialogCommand.Execute(true, null); // Pass true as a dialog result
+            DialogHost.CloseDialogCommand.Execute(true, null); 
         }
 
         private void ExecuteClose()
         {
             // Handle Close logic here
-            DialogHost.CloseDialogCommand.Execute(false, null); // Pass false as a dialog result
+            DialogHost.CloseDialogCommand.Execute(false, null); 
         }
-
-    
     }
 }
